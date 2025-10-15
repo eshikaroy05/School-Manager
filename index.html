@@ -1,12 +1,265 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <title>School Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="School Management System, Education, Student Information System" />
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <!-- Google Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+
+    <style>
+        /* Custom styles for the main page */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .stats-counter {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .stats-counter .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
-	<center>
-	<h1>The Website is under Construction</h1>
-	</center>
-</body>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>School Management System</h1>
+            <p>Comprehensive solution for modern educational institutions</p>
+            <a href="parent_Login.php" class="btn btn-primary-custom">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Features</h2>
+                <p>Everything you need to manage your school efficiently</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-graduation-cap"></i>
+                        <h3>Student Management</h3>
+                        <p>Complete student lifecycle management from admission to graduation with comprehensive academic records.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-users"></i>
+                        <h3>Parent Portal</h3>
+                        <p>Secure parent access to view academic progress, attendance, fees, and communicate with teachers.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-chalkboard-teacher"></i>
+                        <h3>Teacher Dashboard</h3>
+                        <p>Streamlined tools for teachers to manage classes, assignments, attendance, and student progress.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-credit-card"></i>
+                        <h3>Fee Management</h3>
+                        <p>Efficient fee collection, payment tracking, and financial reporting for the institution.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-bus"></i>
+                        <h3>Transport Management</h3>
+                        <p>Complete transportation system management including routes, schedules, and student allocation.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <i class="fa fa-book"></i>
+                        <h3>Library System</h3>
+                        <p>Digital library management with book tracking, issue/return, and inventory management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-counter" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="counter">500+</div>
+                    <p>Students</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter">50+</div>
+                    <p>Teachers</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter">10+</div>
+                    <p>Classes</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="counter">1000+</div>
+                    <p>Books</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto text-center">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Join thousands of educational institutions already using our system</p>
+                    <div class="mt-4">
+                        <a href="parent_Login.php" class="btn btn-primary-custom mr-3">Parent Login</a>
+                        <a href="registration.html" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 School Management System. All rights reserved. | Designed for educational excellence</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/jquery2.0.3.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Counter Animation Script -->
+    <script>
+        $(document).ready(function(){
+            $('.counter').each(function () {
+                $(this).prop('Counter',0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
 </html>

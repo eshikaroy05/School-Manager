@@ -1,0 +1,101 @@
+# School Management System - Access Control
+# This file controls access to various parts of the system
+
+# Enable rewrite engine for clean URLs
+RewriteEngine On
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to config files
+<FilesMatch "(config\.php|database\.php|connection\.php)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Protect admin and sensitive directories
+<DirectoryMatch "(admin|config|includes|backup)s?">
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from localhost
+</DirectoryMatch>
+
+# Force HTTPS for secure pages (uncomment when SSL is available)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove server signature for security
+ServerSignature Off
+
+# Prevent image hotlinking (optional)
+# <FilesMatch "\.(jpg|jpeg|png|gif|ico)$">
+#     SetEnvIfNoCase Referer "^http://yourdomain.com" local_ref=1
+#     SetEnvIfNoCase Referer "^$" local_ref=1
+#     Order Allow,Deny
+#     Allow from env=local_ref
+# </FilesMatch>
+
+# Cache control for static assets
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    Header append Cache-Control "public"
+</FilesMatch>
+
+# Prevent access to version control directories
+RedirectMatch 404 /\.git
+
+# Custom error pages
+ErrorDocument 404 /404.php
+ErrorDocument 403 /maintenance.html
+ErrorDocument 500 /maintenance.html
+
+# Security headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options nosniff
+
+    # Enable XSS filtering
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Hide server information
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# File upload restrictions
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Directory browsing protection
+Options -Indexes
+
+# Main page rewrite rules (if needed)
+# Uncomment and modify as needed for clean URLs
+
+# RewriteRule ^parent/login$ parent_Login.php [L]
+# RewriteRule ^parent/register$ parent_Registration.php [L]
+# RewriteRule ^student/dashboard$ student_dashboard.php [L]
+
+# Force trailing slash (optional)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+# RewriteRule ^(.*)$ $1/ [L,R=301]
+
+# Redirect old maintenance page to new one (if needed)
+# Redirect 301 /old-maintenance.html /maintenance.html
